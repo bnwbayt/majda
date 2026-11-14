@@ -124,6 +124,7 @@ a.ghost{display:inline-block;text-decoration:none}
     <div class="row">
       <button class="btn" id="send">Send my answer</button>
       <button class="ghost" id="copy">Copy message</button>
+      <button class="ghost" id="mail">Email instead</button>
     </div>
     <p class="note" id="copied" aria-live="polite">Tap send and Kareem will know you said yes.</p>
   </section>
@@ -220,6 +221,7 @@ a.ghost{display:inline-block;text-decoration:none}
     show('s4');hearts(40);
   };
   $('send').onclick=function(){window.open('https://wa.me/201022342873?text='+encodeURIComponent(msg()),'_blank')};
+  $('mail').onclick=function(){window.open('mailto:kareematef0102@gmail.com?subject='+encodeURIComponent('Majda said yes 🎬')+'&body='+encodeURIComponent(msg()),'_blank')};
   $('copy').onclick=function(){
     var t=msg();
     function ok(){$('copied').textContent='Copied. Paste it to me whenever you’re ready.'}
