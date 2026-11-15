@@ -181,8 +181,9 @@ a.ghost{display:inline-block;text-decoration:none}
   var link=$('lb-link'),ttl=$('lb-title');
   function validLink(){var v=link.value.toLowerCase();return v.indexOf('letterboxd.com/')>-1||v.indexOf('boxd.it/')>-1}
   $('g-next').onclick=function(){
-    var l=validLink()?link.value.trim():'';if(l&&l.indexOf('http')!==0)l='https://'+l;
-    var t=ttl.value.trim();
+    var l=link.value.trim(),t=ttl.value.trim();
+    if(!l&&t.indexOf('http')===0){l=t;t=''}
+    if(l&&l.indexOf('http')!==0)l='https://'+l;
     if(!t){
       var parts=l.split('/film/');
       if(parts[1]){t=parts[1].split('/')[0].split('?')[0].split('-').map(function(w){return w.charAt(0).toUpperCase()+w.slice(1)}).join(' ')}
